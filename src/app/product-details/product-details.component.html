@@ -33,13 +33,9 @@
     <p>
       Available Inventory: {{ availableInventory() }}
       @if (availableInventory() === 1) {
-        <span class="pill red">Only One Left!</span>
-      } @else if (availableInventory() < 1) {
-        <span class="pill red">Out of Stock!</span>
-      } @else if (availableInventory() < 5) {
-        <span class="pill yellow">Few left!</span>
-      } @else {
-        <span class="pill">Get yours today!</span>
+        <span class="pill" [class.red]="availableInventory() < 5">
+          {{ availableInventory() | i18nPlural: inventoryMap }}
+        </span>
       }
     </p>
   </div>

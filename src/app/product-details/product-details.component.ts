@@ -1,17 +1,26 @@
 import { Component, signal, input } from '@angular/core';
 import { IProduct } from '../product.model';
-import { CurrencyPipe, NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { CartService } from '../cart.service';
 
 @Component({
   selector: 'bot-product-details',
-  imports: [CurrencyPipe, NgClass],
+  imports: [CommonModule],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css',
 })
 export class ProductDetailsComponent {
   product = input<any>();
   availableInventory = signal(5);
+
+  inventoryMap = {
+    '=0': 'Out of Stock',
+    '=1': 'Only One left',
+    '=2': 'Few left!',
+    '=3': 'Few left!',
+    '=4': 'Few left!',
+    '=5': 'Get yours today!',
+  };
 
   constructor(private cartService: CartService) {}
 
