@@ -7,13 +7,13 @@ import { CartService } from '../cart.service';
   selector: 'bot-product-details',
   imports: [CurrencyPipe, NgClass],
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css'
+  styleUrl: './product-details.component.css',
 })
 export class ProductDetailsComponent {
   product = input<any>();
   availableInventory = signal(5);
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService) {}
 
   getImageUrl(product: IProduct) {
     return '/images/robot-parts/' + product.imageName;
@@ -25,6 +25,6 @@ export class ProductDetailsComponent {
   }
 
   getPriceClasses() {
-    return { strikethrough: this.product().discount > 0 }
+    return { strikethrough: this.product().discount > 0 };
   }
 }
