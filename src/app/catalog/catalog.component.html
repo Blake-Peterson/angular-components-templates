@@ -8,7 +8,7 @@
 </div>
 <ul>
   @for (
-    product of products | FilterByCategoryPipe:categoryFilter;
+    product of products | filterByCategory:categoryFilter;
     track product.id;
     let idx = $index, count = $count, 
     even = $even, odd =$odd,
