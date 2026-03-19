@@ -6,11 +6,10 @@
   <div>
     <h2>{{ p.name }}</h2>
     <p>{{ p.description }}</p>
-    <p>Part Type: {{ p.category | categoryToPartType }}</p>
+    <p>Part Type: {{ p.category | categoryToPartType: true }}</p>
     @if (p.productNotes; as notes) {
       <p>Product Notes: {{ notes }}</p>
     }
-
     <p>
       Available Inventory: {{ availableInventory() }}
       @if (availableInventory() === 1) {
