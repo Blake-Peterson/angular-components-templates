@@ -16,9 +16,7 @@
   ) {
     <li [class.alt]="odd" [class.top]="first">
       <div>Index: {{ idx + 1 }} of {{ count }}</div>
-      <bot-product-details [product]="product">
-        <button class="cta" (click)="addToCart(product)">Buy</button>
-      </bot-product-details>
+      <bot-product-details mode="shop" [product]="product" />
     </li>
   }
 </ul>

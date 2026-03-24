@@ -13,6 +13,8 @@ export class ProductDetailsComponent {
   product = input.required<IProduct>();
   availableInventory = signal(5);
 
+  mode = input<'shop' | 'cart'>('shop');
+
   inventoryMap = {
     '=0': 'Out of Stock',
     '=1': 'Only One left',
