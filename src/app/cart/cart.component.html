@@ -9,7 +9,11 @@
 <ul>
   @for (product of cartItems(); track product.id) {
     <li>
-      <bot-product-details mode="cart" [product]="product" />
+      <bot-product-details
+        mode="cart"
+        (removeFromCart)="removeFromCart($event)"
+        [product]="product"
+      />
     </li>
   } @empty {
     <h2>You have no items in your cart</h2>

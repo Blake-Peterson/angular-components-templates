@@ -26,8 +26,8 @@
     <p>{{ discountedPrice }}</p>
   }
   @if (mode() === "shop") {
-    <button class="cta" (click)="addToCart(product)">Buy</button>
+    <button class="cta" (click)="add()">Buy</button>
   } @else {
-    <button class="remove" (click)="removeFromCart(product)">Remove</button>
+    <button class="remove" (click)="remove()">Remove</button>
   }
 </div>

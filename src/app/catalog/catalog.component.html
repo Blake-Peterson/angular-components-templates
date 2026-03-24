@@ -16,7 +16,11 @@
   ) {
     <li [class.alt]="odd" [class.top]="first">
       <div>Index: {{ idx + 1 }} of {{ count }}</div>
-      <bot-product-details mode="shop" [product]="product" />
+      <bot-product-details
+        mode="shop"
+        (addToCart)="addToCart($event)"
+        [product]="product"
+      />
     </li>
   }
 </ul>
