@@ -19,7 +19,10 @@
       }
     </p>
     <div>Favorite Rating: {{ favorite() }}</div>
-    <bot-slider [(sliderValue)]="favorite" />
+    <bot-slider
+      [(sliderValue)]="favorite"
+      (sliderValueChange)="handleSliderChange($event)"
+    />
   </div>
 </div>
 <div class="price">
