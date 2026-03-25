@@ -11,7 +11,9 @@ import { SliderComponent } from '../slider/slider.component';
   styleUrl: './product-details.component.css',
 })
 export class ProductDetailsComponent {
-  product = input.required<IProduct>();
+  product = input.required<IProduct, IProduct>({
+    transform: this.normalizeDiscount,
+  });
   availableInventory = signal(5);
   mode = input<'shop' | 'cart'>('shop');
   addToCart = output<IProduct>();
@@ -38,6 +40,13 @@ export class ProductDetailsComponent {
 
   handleSliderChange(newValue: number) {
     console.log('New slider valuie:', newValue);
+  }
+
+  normalizeDiscount(product: IProduct): IProduct {
+    if (product.discount < 1) {
+      return product;
+    }
+    return { ...product, discount: product.discount / 100 };
   }
 
   getImageUrl(product: IProduct) {
